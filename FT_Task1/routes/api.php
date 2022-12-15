@@ -19,8 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-// Route::middleware('sessions')->group(function () {
-//     Route::get('products', [\App\Http\Controllers\HomeController::class, 'getProducts']);
-//     Route::post('carts', [\App\Http\Controllers\CartController::class, 'store']);
-//     Route::get('carts', [\App\Http\Controllers\CartController::class, 'show']);
-// });
+Route::middleware('sessions')->group(function () {
+     
+     Route::get('products', [\App\Http\Controllers\HomeController::class, 'getProducts']);
+     Route::post('carts', [\App\Http\Controllers\CartController::class, 'store']);
+     Route::get('carts', [\App\Http\Controllers\CartController::class, 'show']);
+     Route::post('products', [\App\Http\Controllers\HomeController::class, 'postProducts']);
+     Route::post('subscribtion', [\App\Http\Controllers\HomeController::class, 'newsSubscribtion']);
+});
